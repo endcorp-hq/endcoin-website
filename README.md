@@ -44,12 +44,14 @@
   ```
 
 - yarn
-
+  from endcoin-frontend
   ```
   yarn install
   ```
 
 ### Start
+
+from endcoin-frontend
 
 ```
 yarn start
