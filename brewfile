@@ -1,0 +1,8 @@
+# Brewfile: Install macOS dependencies
+# ====================================
+# HOWTO: Run `brew bundle` from the repository's root.
+#
+# Please refer to the [Homebrew-bundle documentation](https://github.com/Homebrew/homebrew-bundle).
+
+brew "yarn"
+brew "direnv"
