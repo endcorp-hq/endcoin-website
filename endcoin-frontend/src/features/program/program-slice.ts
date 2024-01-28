@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, store } from '../../app/store';
 import { ProgramState } from './types/program-state';
 import { EReducerState } from '../../app/enum';
+import { GraphPoint } from './types/graph-point';
 
 const initialState: ProgramState = {
   status: EReducerState.IDLE,
@@ -15,7 +16,7 @@ export const programSlice = createSlice({
   name: 'program',
   initialState,
   reducers: {
-    setGraphDataPoints: (state, action: PayloadAction<number[]>) => {
+    setGraphDataPoints: (state, action: PayloadAction<GraphPoint[]>) => {
       state.graphDataPoints = action.payload;
     },
   },
@@ -27,7 +28,7 @@ export const programSlice = createSlice({
       })
       .addCase(
         fetchProgramBalanceAsync.fulfilled,
-        (state, action: PayloadAction<number[]>) => {
+        (state, action: PayloadAction<GraphPoint[]>) => {
           state.graphDataPoints = action.payload;
           state.status = EReducerState.IDLE;
           console.log('perform fetch program balance async fulfilled');
@@ -49,7 +50,11 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
   async (_, { getState }) => {
     console.log('hello');
     const numArray = [1, 2, 3, 4, 5];
-    return numArray;
+
+    const graphPoints: GraphPoint[] = numArray.map((num, index) => {
+      return { name: index, uv: num };
+    });
+    return graphPoints;
   },
   {
     condition: (_, { getState, extra }) => {
