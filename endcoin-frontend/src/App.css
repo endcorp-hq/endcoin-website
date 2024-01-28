@@ -24,6 +24,10 @@
   font-size: calc(10px + 2vmin);
 }
 
+.App-loading-font {
+  font-size: calc(10px + 2vmin);
+}
+
 .App-link {
   color: rgb(112, 76, 182);
 }
