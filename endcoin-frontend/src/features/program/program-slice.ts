@@ -87,10 +87,10 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
         }
 
         let postBalance = 0;
+        let endBalance = 0;
+        let gaiaBalance = 0;
+        let plsBalance = 0;
         if (transaction.meta.postTokenBalances) {
-          let endBalance = 0;
-          let gaiaBalance = 0;
-          let plsBalance = 0;
           const plsAddress = 'PLSxiYHus8rhc2NhXs2qvvhAcpsa4Q3TzTCi3o8xAEU';
           const gaiaAddress = 'GAiAxUPQrUaELAuri8tVC354bGuUGGykCN8tP4qfCeSp';
           const endAddress = 'ENDxPmLfBBTVby7DBYUo4gEkFABQgvLP2LydFCzGGBee';
@@ -130,12 +130,14 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
         const graphPoint: GraphPoint = {
           blocktime: transaction.blockTime!,
           EndGaia: postBalance,
+          endCoin: endBalance,
+          gaiaCoin: gaiaBalance,
         };
         dataPoints.push(graphPoint);
       }
     }
-    //sort the data by uv
-    dataPoints.sort((a, b) => a.EndGaia - b.EndGaia);
+    //hack, since we batch emitted previous data points, multiple transactions are in the same block
+    dataPoints.sort((a, b) => a.endCoin! - b.endCoin!);
     return dataPoints;
   },
   {
