@@ -55,7 +55,7 @@ export const programSlice = createSlice({
 export const fetchProgramBalanceAsync = createAsyncThunk(
   'program/fetch-program-balance',
   async (_, { getState }) => {
-    const programId = 'Dm8CMAiXHEcpxsN1p69BGy1veoUvfTbCgjv9eiH3U7eH';
+    const programId = '3ueQV5DMwmnif9JBmf7SSvD6Lsf13nBu4dzCQfsjZX3d';
     const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
     let dataPoints: GraphPoint[] = [];
 
@@ -66,6 +66,7 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
 
     //Iterate over each signature to fetch the transaction details
     const signatureArray = Array.from(signaturesInfo.entries());
+    signatureArray.reverse();
     for (const [index, signatureInfo] of signatureArray) {
       const signature = signatureInfo.signature;
       const transactionConfig: GetVersionedTransactionConfig = {
@@ -80,33 +81,61 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
 
       if (transaction) {
         // Iterate over each account involved in the transaction
-        const entriesArray = Array.from(
-          transaction.transaction.message.accountKeys.entries(),
-        );
-        for (const [index2, account] of entriesArray) {
-          // for (const [
-          //   index,
-          //   account,
-          // ] of transaction.transaction.message.accountKeys.entries()) {
-          if (!transaction.meta) {
-            console.log('No transaction meta');
-            continue;
-          }
-
-          const postBalance = transaction.meta.postBalances[index2];
-          const graphPoint: GraphPoint = {
-            name: index,
-            uv: postBalance,
-          };
-          dataPoints.push(graphPoint);
-
-          // console.log(`Account: ${account.toString()}`);
-          // console.log(`Pre-Transaction Balance: ${preBalance}`);
-          // console.log(`Post-Transaction Balance: ${postBalance}`);
-          // console.log('---------------------------');
+        if (!transaction.meta) {
+          console.log('No transaction meta');
+          continue;
         }
+
+        let postBalance = 0;
+        if (transaction.meta.postTokenBalances) {
+          let endBalance = 0;
+          let gaiaBalance = 0;
+          let plsBalance = 0;
+          const plsAddress = 'PLSxiYHus8rhc2NhXs2qvvhAcpsa4Q3TzTCi3o8xAEU';
+          const gaiaAddress = 'GAiAxUPQrUaELAuri8tVC354bGuUGGykCN8tP4qfCeSp';
+          const endAddress = 'ENDxPmLfBBTVby7DBYUo4gEkFABQgvLP2LydFCzGGBee';
+          if (transaction.meta.postTokenBalances.length > 0) {
+            const tokenBalances = transaction.meta.postTokenBalances;
+            for (let i = 0; i < tokenBalances.length; i++) {
+              const tokenBalance = tokenBalances[i];
+              if (tokenBalance.mint === plsAddress) {
+                console.log(
+                  'PLS Balance: ' + tokenBalance.uiTokenAmount.amount,
+                );
+                plsBalance = tokenBalance.uiTokenAmount.uiAmount!;
+              }
+              if (tokenBalance.mint === gaiaAddress) {
+                console.log(
+                  'GAIA Balance: ' + tokenBalance.uiTokenAmount.uiAmount,
+                );
+                gaiaBalance = tokenBalance.uiTokenAmount.uiAmount!;
+              }
+              if (tokenBalance.mint === endAddress) {
+                console.log(
+                  'END Balance: ' + tokenBalance.uiTokenAmount.uiAmount,
+                );
+                endBalance = tokenBalance.uiTokenAmount.uiAmount!;
+              }
+              if (endBalance === 0 || gaiaBalance === 0) {
+                continue;
+              }
+              postBalance = endBalance / gaiaBalance;
+            }
+          }
+        }
+
+        if (postBalance === 0) {
+          continue;
+        }
+        const graphPoint: GraphPoint = {
+          blocktime: transaction.blockTime!,
+          EndGaia: postBalance,
+        };
+        dataPoints.push(graphPoint);
       }
     }
+    //sort the data by uv
+    dataPoints.sort((a, b) => a.EndGaia - b.EndGaia);
     return dataPoints;
   },
   {

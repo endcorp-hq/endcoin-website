@@ -12,10 +12,12 @@ import { useAppSelector } from '../../app/hooks';
 
 export default function AreaChart() {
   const dataPoints = useAppSelector(selectGraphDataPoints);
+  const width = window.innerWidth > 1000 ? 1000 : window.innerWidth - 20;
+  const height = window.innerHeight > 1000 ? 1000 : window.innerHeight - 20;
   return (
     <AreaChartRecharts
-      width={1000}
-      height={1000}
+      width={width}
+      height={height}
       data={dataPoints}
       margin={{
         top: 10,
@@ -25,10 +27,10 @@ export default function AreaChart() {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="blocktime" />
       <YAxis />
       <Tooltip />
-      <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+      <Area type="monotone" dataKey="EndGaia" stroke="#8884d8" fill="#8884d8" />
     </AreaChartRecharts>
   );
 }

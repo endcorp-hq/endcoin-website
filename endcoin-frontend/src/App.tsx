@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import {
@@ -27,7 +25,12 @@ function App() {
         {programStatus === EReducerState.LOADING && (
           <div className="App-loading-font">Loading...</div>
         )}
-        <AreaChart />
+        {programStatus === EReducerState.IDLE && (
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h1>Endcoin/Gaiacoin</h1>
+            <AreaChart />
+          </div>
+        )}
       </div>
     </>
   );
