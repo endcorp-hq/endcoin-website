@@ -8,6 +8,7 @@ import {
 } from './features/program/program-slice';
 import AreaChart from './features/graph/area-chart';
 import { EReducerState } from './app/enum';
+import Landing from './features/landing/landing';
 
 function App() {
   const dataPoints = useAppSelector(selectGraphDataPoints);
@@ -21,7 +22,11 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div>
+        {' '}
+        <Landing />
+      </div>
+      {/* <div className="App">
         {programStatus === EReducerState.LOADING && (
           <div className="App-loading-font">Loading...</div>
         )}
@@ -31,7 +36,7 @@ function App() {
             <AreaChart />
           </div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
