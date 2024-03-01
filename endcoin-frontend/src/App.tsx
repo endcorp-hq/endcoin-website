@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import {
-  selectGraphDataPoints,
   selectProgramStatus,
   fetchProgramBalanceAsync,
 } from './features/program/program-slice';
@@ -11,7 +10,6 @@ import { EReducerState } from './app/enum';
 import Landing from './features/landing/landing';
 
 function App() {
-  const dataPoints = useAppSelector(selectGraphDataPoints);
   const programStatus: EReducerState = useAppSelector(selectProgramStatus);
   const dispatch = useAppDispatch();
 

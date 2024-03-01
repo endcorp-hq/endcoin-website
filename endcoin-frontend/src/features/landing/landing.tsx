@@ -1,12 +1,16 @@
-import {
-  CheckCircleIcon,
-  InformationCircleIcon,
-} from '@heroicons/react/20/solid';
 import goal from '../../images/goal.png';
-
 import AreaChart from '../graph/area-chart';
+import { EReducerState } from '../../app/enum';
+import {
+  selectGraphDataPoints,
+  selectProgramStatus,
+  fetchProgramBalanceAsync,
+} from '../program/program-slice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 export default function Landing() {
+  const programStatus: EReducerState = useAppSelector(selectProgramStatus);
+  const dispatch = useAppDispatch();
   return (
     <div className="bg-white px-6 py-32 lg:px-8">
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
@@ -41,8 +45,15 @@ export default function Landing() {
           <ul className="list-disc list-outside [&_ul]:list-[revert]">
             <li>
               We are entering the Colosseum Renaissance hackathon to compete for
-              top prize in DePin, DeFi and Climate.
-              https://www.colosseum.org/renaissance{' '}
+              top prize in DePin, DeFi and Climate.{' '}
+              <a
+                href="https://www.colosseum.org/renaissance"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'underline', color: 'blue' }}
+              >
+                https://www.colosseum.org/renaissance
+              </a>
             </li>
             <li>
               We (Andrew & Lucas) can do all the parts, but we’d like to move
@@ -111,18 +122,34 @@ export default function Landing() {
             Where are we now?
           </h2>
           <p className="mt-6 text-xl leading-8">
-            Andrew recently completed the web 3 builders alliance (WBA) Q4
-            Cohort, where we deployed an MVP POC to solana devnet. This version
-            reads sea surface temperature from a data API, which is read by the
-            solana program. This data drives the emission rate of end coin and
-            gaia coin. When temperatures rise more gaia coin than endcoin are
-            created. When temperatures fall, more endcoin than gaiacoin are
-            emitted. When viewed as a pair in an AMM, this draws a “heartbeat”
-            the “pulse on climate” – here is this data, being pulled live from
-            the AMM on devnet, showing the last 30 days of emissions:
+            Andrew recently completed the{' '}
+            <a
+              href="https://web3builders.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'underline', color: 'blue' }}
+            >
+              web 3 builders alliance
+            </a>{' '}
+            (WBA) Q4 Cohort, where we deployed an MVP POC to solana devnet. This
+            version reads sea surface temperature from a data API, which is read
+            by the solana program. This data drives the emission rate of end
+            coin and gaia coin. When temperatures rise more gaia coin than
+            endcoin are created. When temperatures fall, more endcoin than
+            gaiacoin are emitted. When viewed as a pair in an AMM, this draws a
+            “heartbeat” the “pulse on climate” – here is this data, being pulled
+            live from the AMM on devnet, showing the last 30 days of emissions:
           </p>
-          <div>
-            <AreaChart></AreaChart>
+          <div className="App">
+            {programStatus === EReducerState.LOADING && (
+              <div className="App-loading-font">Loading...</div>
+            )}
+            {programStatus === EReducerState.IDLE && (
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <h1>Endcoin/Gaiacoin</h1>
+                <AreaChart />
+              </div>
+            )}
           </div>
         </div>
       </div>
