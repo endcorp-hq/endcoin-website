@@ -55,8 +55,9 @@ export const programSlice = createSlice({
 export const fetchProgramBalanceAsync = createAsyncThunk(
   'program/fetch-program-balance',
   async (_, { getState }) => {
-    const programId = '3ueQV5DMwmnif9JBmf7SSvD6Lsf13nBu4dzCQfsjZX3d';
-    const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+    const programId = 'CsZXQua2LBArR51MtTJE3K1VA4DcxFFWUWU4JSJeJbeR';
+    const url = process.env.REACT_APP_SOLANA_RPC!;
+    const connection = new Connection(url, 'confirmed');
     let dataPoints: GraphPoint[] = [];
 
     // Fetch the signatures of all transactions involving the program
