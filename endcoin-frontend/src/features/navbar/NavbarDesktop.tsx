@@ -1,15 +1,9 @@
 import { EndLogo } from '../../icons/logo.icon';
 import { NAVBAR_LINKS } from '../../constants/navbar-items';
+import { scrollToDiv } from '../../constants/scrollFunction';
 import './navbar.css';
 
 const SidebarDesktop = (): JSX.Element => {
-  const scrollToDiv = (id: string) => {
-    const element = document.getElementById(id);
-    console.log(element);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
   return (
     <>
       <header
@@ -26,7 +20,13 @@ const SidebarDesktop = (): JSX.Element => {
                 'max-w-[1300px] flex px-[20px] items-center w-full justify-between'
               }
             >
-              <EndLogo />
+              <button
+                onClick={() => {
+                  scrollToDiv('coin');
+                }}
+              >
+                <EndLogo />
+              </button>
 
               {
                 <ul className={`flex gap-x-24`}>

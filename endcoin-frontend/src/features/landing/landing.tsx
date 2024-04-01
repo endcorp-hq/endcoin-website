@@ -11,6 +11,7 @@ import Coin from './Coin';
 import About from './About';
 import Layout from '../../app/Layout/layout';
 import Contact from './Contact';
+import Hackathon from './Hackathon';
 
 export default function Landing() {
   const programStatus: EReducerState = useAppSelector(selectProgramStatus);
@@ -21,11 +22,12 @@ export default function Landing() {
         <div className="flex flex-col gap-y-[80px]">
           <Coin />
           <About />
+          <Hackathon />
           <Contact />
         </div>
       </Layout>
 
-      <div className="bg px-6 py-32 lg:px-8">
+      {/* <div className="bg px-6 py-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
           <p className="text-base font-semibold leading-7 text-indigo-600">
             Endcoin
@@ -169,7 +171,7 @@ export default function Landing() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

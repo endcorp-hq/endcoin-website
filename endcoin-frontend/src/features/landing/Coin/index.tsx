@@ -1,6 +1,6 @@
 import React from 'react';
 import coin from '../../../images/coin.svg';
-import '../../../';
+import { scrollToDiv } from '../../../constants/scrollFunction';
 
 type Props = {};
 
@@ -8,7 +8,7 @@ const Coin = (props: Props) => {
   return (
     <div
       id="coin"
-      className="flex w-full font-endcoin flex-col endcoin-md:flex-row justify-center items-center endcoin-md:justify-between bg"
+      className="flex w-full font-endcoin flex-col endcoin-md:flex-row justify-center items-center endcoin-md:justify-between min-h-screen bg"
     >
       <div className="w-full max-w-[540px]">
         <img src={coin} alt="Coin Image" />
@@ -18,7 +18,10 @@ const Coin = (props: Props) => {
           <p>THE EARTH IS CHANGING</p>
           <p>IT’S TIME OUR ACTIONS DID TOO</p>
         </div>
-        <button className="bg-end-button-green rounded-md p-3 endcoin-md:p-4 text-xs endcoin-lg:text-[16px] text-white max-w-fit">
+        <button
+          onClick={() => scrollToDiv('mission')}
+          className="bg-end-button-green rounded-md p-3 endcoin-md:p-4 text-xs endcoin-lg:text-[16px] text-white max-w-fit"
+        >
           LEARN MORE
         </button>
       </div>

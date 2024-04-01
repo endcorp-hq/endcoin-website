@@ -1,6 +1,7 @@
 import React from 'react';
 import { EndLogo, CloseMenuIcon, MenuIcon } from '../../icons/logo.icon';
 import { NAVBAR_LINKS } from '../../constants/navbar-items';
+import { scrollToDiv } from '../../constants/scrollFunction';
 import './navbar.css';
 
 const SidebarResponsive = ({
@@ -19,7 +20,11 @@ const SidebarResponsive = ({
             'ml-[16px] kimo-lg:max-w-[752px] kimo-md:max-w-[560px] w-full h-full kimo-md:mx-auto flex items-center kimo-md:relative'
           }
         >
-          {<EndLogo />}
+          {
+            <button onClick={() => scrollToDiv('coin')}>
+              <EndLogo />
+            </button>
+          }
 
           {
             <>
@@ -50,7 +55,7 @@ const SidebarResponsive = ({
             <CloseMenuIcon color={'#868472'} />
           </button>
         }
-        <div className={`mt-[42px] border border-transparent py-2`} />
+        <div className={`mt-[42px] py-2`} />
 
         <ul>
           {NAVBAR_LINKS.map((navTag, index) => {
@@ -61,6 +66,7 @@ const SidebarResponsive = ({
                     'w-full mb-[16px] text-left text-[#868472] hover:text-[#D3B280]'
                   }
                   onClick={() => {
+                    scrollToDiv(navTag.link);
                     setIsOpen(false);
                   }}
                 >

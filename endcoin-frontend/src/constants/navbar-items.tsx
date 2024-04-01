@@ -5,11 +5,11 @@ export const NAVBAR_LINKS = [
   },
   {
     name: 'DATA',
-    link: '/courses',
+    link: '',
   },
   {
     name: 'HACKATHON',
-    link: '/assessments',
+    link: 'hackathon',
   },
   {
     name: 'CONTACT',
