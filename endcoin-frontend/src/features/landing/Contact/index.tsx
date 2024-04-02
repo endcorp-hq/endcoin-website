@@ -9,7 +9,7 @@ const Coin = (props: Props) => {
   return (
     <div
       id="contact"
-      className="flex flex-col justify-center items-center font-endcoin text-end-hover-gold w-full bg endcoin-md:min-h-[60vh] endcoin-xl:min-h-screen gap-y-2 endcoin-md:gap-y-10"
+      className="flex flex-col justify-center items-center font-endcoin text-end-hover-gold w-full bg pb-5 endcoin-md:pb-8 gap-y-2 endcoin-md:gap-y-10"
     >
       <p className="text-[24px] endcoin-xl:text-[36px] w-full text-center">
         REACH OUT!

@@ -12,6 +12,7 @@ import About from './About';
 import Layout from '../../app/Layout/layout';
 import Contact from './Contact';
 import Hackathon from './Hackathon';
+import WhitePaper from './WhitePaper';
 
 export default function Landing() {
   const programStatus: EReducerState = useAppSelector(selectProgramStatus);
@@ -23,6 +24,7 @@ export default function Landing() {
           <Coin />
           <About />
           <Hackathon />
+          <WhitePaper />
           <Contact />
         </div>
       </Layout>

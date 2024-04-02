@@ -8,6 +8,10 @@ export const NAVBAR_LINKS = [
     link: '',
   },
   {
+    name: 'WHITEPAPER',
+    link: 'whitepaper',
+  },
+  {
     name: 'HACKATHON',
     link: 'hackathon',
   },

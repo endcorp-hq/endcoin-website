@@ -8,19 +8,19 @@ const Hackathon = (props: Props) => {
   return (
     <div
       id="hackathon"
-      className="flex w-full font-endcoin flex-col endcoin-md:flex-row justify-center items-center endcoin-md:justify-between pt-[72px] endcoin-md:mt-0 min-h-screen"
+      className="flex w-full font-endcoin flex-col items-center pt-[72px] endcoin-xl:pt-[130px] endcoin-md:mt-0 gap-y-4 endcoin-md:gap-y-10"
     >
-      <div className="min-w-[40vw]">
+      <div className="text-end-hover-gold text-[20px] w-full flex endcoin-lg:text-[24px] endcoin-xl:text-[36px] mt-[20px] endcoin-xl:pb-5">
+        <p>COLLESEUM HACKATHON</p>
+      </div>
+      <div className="min-w-[40vw] flex w-full ">
         <div className="w-full max-w-[540px] bg-shadow my-4 endcoin-md:m-0">
-          <img src={goal} alt="Coin Image" />
+          <img src={goal} alt="goal Image" />
         </div>
       </div>
 
       <div className="flex flex-col justify-between w-full">
-        <div className="text-end-hover-gold text-[20px] endcoin-lg:text-[24px] endcoin-xl:text-[36px] mt-[20px] endcoin-md:pt-[72px] endcoin-xl:pt-[130px] endcoin-xl:pb-5">
-          <p>COLLESEUM HACKATHON</p>
-        </div>
-        <ul className="text-white list-disc [&_ul]:list-[revert] p-4 endcoin-md:p-0">
+        <ul className="text-white list-disc [&_ul]:list-[revert] px-4">
           <li className="pb-3">
             We are entering the Colosseum Renaissance hackathon to compete for
             top prize in DePin, DeFi and Climate.{' '}

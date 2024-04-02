@@ -8,7 +8,7 @@ const Coin = (props: Props) => {
   return (
     <div
       id="coin"
-      className="flex w-full font-endcoin flex-col endcoin-md:flex-row justify-center items-center endcoin-md:justify-between min-h-screen bg"
+      className="flex w-full font-endcoin flex-col endcoin-md:flex-row justify-center items-center endcoin-md:justify-between bg min-h-screen"
     >
       <div className="w-full max-w-[540px]">
         <img src={coin} alt="Coin Image" />
