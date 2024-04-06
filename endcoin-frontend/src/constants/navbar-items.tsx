@@ -1,22 +1,26 @@
 export const NAVBAR_LINKS = [
   {
-    name: 'ABOUT',
+    name: 'About',
     link: 'mission',
   },
   {
-    name: 'DATA',
-    link: '',
-  },
-  {
-    name: 'WHITEPAPER',
-    link: 'whitepaper',
-  },
-  {
-    name: 'HACKATHON',
+    name: 'Hackathon',
     link: 'hackathon',
   },
   {
-    name: 'CONTACT',
+    name: 'Whitepaper',
+    link: 'whitepaper',
+  },
+  {
+    name: 'Contact',
     link: 'contact',
+  },
+  {
+    name: '|',
+    link: '',
+  },
+  {
+    name: 'Data',
+    link: 'dataGraph',
   },
 ];

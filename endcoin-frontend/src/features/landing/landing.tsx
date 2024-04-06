@@ -9,25 +9,24 @@ import {
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import Coin from './Coin';
 import About from './About';
-import Layout from '../../app/Layout/layout';
 import Contact from './Contact';
 import Hackathon from './Hackathon';
 import WhitePaper from './WhitePaper';
+import DataGraph from './DataGraph';
 
 export default function Landing() {
   const programStatus: EReducerState = useAppSelector(selectProgramStatus);
   const dispatch = useAppDispatch();
   return (
     <>
-      <Layout blackBackground={true}>
-        <div className="flex flex-col gap-y-[80px]">
-          <Coin />
-          <About />
-          <Hackathon />
-          <WhitePaper />
-          <Contact />
-        </div>
-      </Layout>
+      <div className="flex flex-col bg-[#09090E]">
+        <Coin />
+        <About />
+        <Hackathon />
+        <WhitePaper />
+        <DataGraph />
+        <Contact />
+      </div>
 
       {/* <div className="bg px-6 py-32 lg:px-8">
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">

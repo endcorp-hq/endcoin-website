@@ -35,7 +35,7 @@ const SidebarResponsive = ({
                   }
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  <MenuIcon color="#868472" />
+                  <MenuIcon color="#fff" />
                 </button>
               ) : null}
             </>
@@ -52,7 +52,7 @@ const SidebarResponsive = ({
             className={'fixed top-4 right-[16px]'}
             onClick={() => setIsOpen(!isOpen)}
           >
-            <CloseMenuIcon color={'#868472'} />
+            <CloseMenuIcon color={'#ffffff'} />
           </button>
         }
         <div className={`mt-[42px] py-2`} />
@@ -62,9 +62,11 @@ const SidebarResponsive = ({
             return (
               <div key={index} className={'relative'}>
                 <button
-                  className={
-                    'w-full mb-[16px] text-left text-[#868472] hover:text-[#D3B280]'
-                  }
+                  className={`w-full mb-[16px] text-left text-white hover:text-end-button-hover-blue ${
+                    navTag.name === '|'
+                      ? 'hidden'
+                      : 'hover:text-end-button-hover-blue'
+                  }`}
                   onClick={() => {
                     scrollToDiv(navTag.link);
                     setIsOpen(false);

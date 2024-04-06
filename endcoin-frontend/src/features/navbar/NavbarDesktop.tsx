@@ -7,7 +7,7 @@ const SidebarDesktop = (): JSX.Element => {
   return (
     <>
       <header
-        className={`top-0 h-[120px] w-full left-1/2 -translate-x-1/2 flex items-center z-50 fixed bg`}
+        className={`top-0 h-[75px] left-0 w-full right-0 flex items-center z-50 fixed bg-[#09090E]`}
       >
         {
           <div
@@ -17,7 +17,7 @@ const SidebarDesktop = (): JSX.Element => {
           >
             <div
               className={
-                'max-w-[1300px] flex px-[20px] items-center w-full justify-between'
+                'max-w-[1100px] flex items-center w-full justify-between'
               }
             >
               <button
@@ -29,20 +29,21 @@ const SidebarDesktop = (): JSX.Element => {
               </button>
 
               {
-                <ul className={`flex gap-x-24`}>
+                <ul className={`flex gap-x-[42px]`}>
                   {NAVBAR_LINKS.map((navTag: any, index: any) => {
                     return (
                       <>
                         <div key={index}>
                           <button
-                            className={
-                              'w-full text-[#868472] hover:text-[#D3B280]'
-                            }
+                            className={`w-full text-white ${
+                              navTag.name === '|'
+                                ? 'cursor-default'
+                                : 'hover:text-end-button-hover-blue'
+                            }`}
                             onClick={() => scrollToDiv(navTag.link)}
                           >
                             {navTag.name}
                           </button>
-                          {/*!isLandingPage && renderShader(navTag)*/}
                         </div>
                       </>
                     );
