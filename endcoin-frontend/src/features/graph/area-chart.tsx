@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   AreaChart as AreaChartRecharts,
   Area,
@@ -9,11 +9,14 @@ import {
 } from 'recharts';
 import { selectGraphDataPoints } from '../program/program-slice';
 import { useAppSelector } from '../../app/hooks';
+import { useWindowSize } from '../../hooks/use-window-size';
 
 export default function AreaChart() {
   const dataPoints = useAppSelector(selectGraphDataPoints);
-  const width = window.innerWidth > 1000 ? 1000 : window.innerWidth - 20;
-  const height = window.innerHeight > 1000 ? 1000 : window.innerHeight - 20;
+  const windowSize = useWindowSize();
+  const width = windowSize[0] > 1000 ? 1000 : window.innerWidth - 20;
+  const height = windowSize[1] > 1000 ? 1000 : window.innerHeight - 20;
+
   return (
     <AreaChartRecharts
       width={width}

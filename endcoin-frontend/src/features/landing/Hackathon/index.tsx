@@ -1,80 +1,117 @@
-import React from 'react';
-import goal from '../../../images/goal.png';
 import './hack.css';
-
+import Layout from '../../../app/Layout/layout';
+import HackTile from './components/HackTile';
+import FieldsTile from './components/FieldsTile';
 type Props = {};
 
 const Hackathon = (props: Props) => {
+  const taskItems = [
+    {
+      id: '00',
+      title: 'Tasks to be accomplished',
+    },
+    {
+      id: '01',
+      title: 'POC',
+      subtitle:
+        '“decentralized antenna” that can read raw data from satellites.',
+      progress:
+        '“decentralized antenna” that can read raw data from satellites.',
+    },
+    {
+      id: '02',
+      title: 'Proof',
+      subtitle:
+        '“decentralized antenna” that can read raw data from satellites.',
+      progress:
+        '“decentralized antenna” that can read raw data from satellites.',
+    },
+    {
+      id: '03',
+      title: 'Audit',
+      subtitle:
+        '“decentralized antenna” that can read raw data from satellites.',
+      progress:
+        '“decentralized antenna” that can read raw data from satellites.',
+    },
+    {
+      id: '04',
+      title: 'Hooks',
+      subtitle:
+        '“decentralized antenna” that can read raw data from satellites.',
+      progress:
+        '“decentralized antenna” that can read raw data from satellites.',
+    },
+    {
+      id: '05',
+      title: 'Hype',
+      subtitle:
+        '“decentralized antenna” that can read raw data from satellites.',
+      progress:
+        '“decentralized antenna” that can read raw data from satellites.',
+    },
+  ];
+
+  const fieldItems = [
+    'DePin Hardware and firmware',
+    'Proof Algorithms',
+    'Climate Data Specialist',
+    'Climate Data Algorithms',
+    'Solana Programs',
+    'AMM',
+    'Hype',
+    'Tokenomics',
+    'Satellite Communications Expert',
+  ];
+
   return (
-    <div
-      id="hackathon"
-      className="flex w-full font-endcoin flex-col items-center pt-[72px] endcoin-xl:pt-[130px] endcoin-md:mt-0 gap-y-4 endcoin-md:gap-y-10"
-    >
-      <div className="text-end-hover-gold text-[20px] w-full flex endcoin-lg:text-[24px] endcoin-xl:text-[36px] mt-[20px] endcoin-xl:pb-5">
-        <p>COLLESEUM HACKATHON</p>
-      </div>
-      <div className="min-w-[40vw] flex w-full ">
-        <div className="w-full max-w-[540px] bg-shadow my-4 endcoin-md:m-0">
-          <img src={goal} alt="goal Image" />
+    <Layout>
+      <div
+        id="hackathon"
+        className="flex w-full h-full font-endcoin flex-col items-center py-16 endcoin-md:mt-0 gap-y-16 endcoin-md:gap-y-[270px]"
+      >
+        <div className="text-white w-full flex flex-col items-center gap-y-6">
+          <p className="text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] text-center">
+            COLLESEUM HACKATHON
+          </p>
+          <p className="text-[14px] endcoin-lg:text-[18px] text-center w-full endcoin-md:max-w-[50vw]">
+            We are entering the Colosseum Renaissance hackathon to compete for
+            top prize in DePin, DeFi and Climate. We (Andrew & Lucas) can do all
+            the parts, but we’d like to move faster and build a team to turn
+            this into a company.
+          </p>
+          <button
+            onClick={() =>
+              window.open('https://www.colosseum.org/renaissance', '_blank')
+            }
+            className="rounded border border-end-button-blue text-end-button-blue text-end-button-green text-[14px] kimo-md:text-[16px] py-2 px-[14.5px] bg-none hover:bg-end-button-blue hover:text-black"
+          >
+            Visit Colleseum Hackathon
+          </button>
+        </div>
+        <div className="flex flex-col w-full text-center gap-y-10 endcoin-md:gap-y-20">
+          <p className="text-white text-[24px] py-2 md:hidden">
+            Tasks to be accomplished
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full endcoin-md:flex-row flex-wrap gap-x-12 gap-y-12">
+            {taskItems.map((item, id) => (
+              <HackTile key={id} item={item} />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-y-10 endcoin-md:gap-y-20 items-center w-full">
+          <p className="text-white text-[24px] endcoin-md:text-[36px]">
+            Main fields of Work
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 w-full endcoin-md:flex-row flex-wrap gap-x-[30px] gap-y-[30px]">
+            {fieldItems.map((item, id) => (
+              <FieldsTile key={id} title={item} />
+            ))}
+          </div>
         </div>
       </div>
-
-      <div className="flex flex-col justify-between w-full">
-        <ul className="text-white list-disc [&_ul]:list-[revert] px-4">
-          <li className="pb-3">
-            We are entering the Colosseum Renaissance hackathon to compete for
-            top prize in DePin, DeFi and Climate.{' '}
-            <a
-              href="https://www.colosseum.org/renaissance"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-end-hover-gold hover:underline"
-            >
-              https://www.colosseum.org/renaissance
-            </a>
-          </li>
-          <li className="pb-3">
-            We (Andrew & Lucas) can do all the parts, but we’d like to move
-            faster and build a team to turn this into a company.{' '}
-          </li>
-          <li className="pb-3">
-            Tasks to be accomplished (We have these broken down into claimable
-            tasks on Linear, reach out if you’d like access)
-            <ul className="pl-10">
-              <li>
-                Build a POC “decentralized antenna” that can read raw data from
-                satellites.
-              </li>
-              <li>
-                “Proof ” program that anyone can run to validate collected data
-                and submit to oracle. Endcoin/Gaiacoin delivered to these
-                proovers.
-              </li>
-              <li>Audit our current program and AMM.</li>
-              <li>
-                Add “hooks” to current program so oracle and emission
-                functionality can be upgraded over time.
-              </li>
-              <li>Start working on Hype – social media, reach, etc.</li>
-            </ul>
-          </li>
-          <li>
-            Main Fields of Work
-            <ul className="pl-10">
-              <li>DePin Hardware and firmware</li>
-              <li>Proof Algorithms</li>
-              <li>Climate Data Specialist</li>
-              <li>Climate Data Algorithms</li>
-              <li>Solana Programs</li>
-              <li>AMM</li>
-              <li>Hype</li>
-              <li>Tokenomics</li>
-              <li>Satellite Communications Expert</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
+    </Layout>
   );
 };
 

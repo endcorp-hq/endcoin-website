@@ -6,7 +6,7 @@ type Props = {
 
 const PageContainer = ({ children }: Props) => {
   return (
-    <div className="w-full max-w-[1300px] endcoin-md:px-[20px] flex flex-col items-center justify-center">
+    <div className="w-full max-w-[1100px] flex flex-col items-center justify-center bg-transparent">
       {children}
     </div>
   );
