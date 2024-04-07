@@ -12,13 +12,12 @@ const About = (props: Props) => {
           Our Mission
         </p>
         <p className="text-white w-full text-left text-[14px] endcoin-md:text-[16px] endcoin-lg:text-[20px] endcoin-xl:text-[24px]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta,
-          ratione ipsa! Iure temporibus mollitia nostrum quos architecto vero
-          corrupti adipisci odio ea sapient
+          Endcoin starts by building A DePin Satellite receiver network to
+          produce a reading of sea surface temperatures. This acts as a price
+          feed to drive existing DeFi systems towards positive climate impact:
           <span className="text-end-button-text-blue">
-            e! Dicta quia voluptates eaque. Vero quidem explicabo odit sunt
-            iusto, soluta commodi molestias eius libero illo ut corporis quia id
-            ex omnis.
+            {' '}
+            A standard rate for the global economy that is owned by the Earth.
           </span>
         </p>
       </div>

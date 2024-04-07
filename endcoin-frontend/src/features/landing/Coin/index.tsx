@@ -17,13 +17,15 @@ const Coin = (props: Props) => {
         </div>
         <div className="flex flex-col justify-between gap-y-8 w-full">
           <p className="text-white text-[40px] font-endcoin-bold endcoin-lg:text-[48px] endcoin-xl:text-[64px] leading-none">
-            The Earth is changing, It's time our actions did too
+            Endcoin
+          </p>
+          <p className="text-blue-400 text-[40px] font-endcoin-bold endcoin-lg:text-[48px] endcoin-xl:text-[64px] leading-none">
+            Decentralized Ground Stations are the next frontier of DePin.
           </p>
 
           {/* Add a catchphrase here or remove this line */}
           <p className="text-white text-[14px] endcoin-md:text-[18px]">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias
-            accusantium neque aliquid!
+            - Joey Hiller - Senior Technical Director at Helium Foundation
           </p>
           <button
             onClick={() => scrollToDiv('mission')}
