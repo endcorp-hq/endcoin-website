@@ -18,10 +18,10 @@ const WhitePaper = (props: Props) => {
             White Paper
           </p>
           <p className="text-[14px] endcoin-xl:text-[18px] text-center">
-            We are entering the Colosseum Renaissance hackathon to compete for
-            top prize in DePin, DeFi and Climate. We (Andrew & Lucas) can do all
-            the parts, but we’d like to move faster and build a team to turn
-            this into a company.
+            Explore how a decentralized network of ground stations and a novel
+            token, appreciating in value with the intensifying effects of
+            climate change, can revolutionize funding for green technologies.
+            Delve into the nitty gritty by reading our whitepaper!
           </p>
           <button
             onClick={() =>
