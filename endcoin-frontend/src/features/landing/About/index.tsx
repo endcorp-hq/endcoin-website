@@ -8,7 +8,7 @@ const About = (props: Props) => {
         id="mission"
         className={`flex w-full font-endcoin flex-col justify-center items-center h-full gap-y-[25px] py-[50px] endcoin-md:py-[200px]`}
       >
-        <p className="text-white w-full text-left text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px]">
+        <p className="text-white w-full text-left text-[30px] font-endcoin-bold endcoin-md:text-[40px] endcoin-xl:text-[48px]">
           Our Mission
         </p>
         <p className="text-white w-full text-left text-[14px] endcoin-md:text-[16px] endcoin-lg:text-[20px] endcoin-xl:text-[24px]">

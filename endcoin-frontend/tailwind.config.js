@@ -2,6 +2,10 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    fontFamily: {
+      'endcoin-bold': 'SarunProCondensed-bold',
+      endcoin: 'SarunProCondensed-Regular',
+    },
     extend: {
       screens: {
         'endcoin-sm': '321px',
@@ -13,9 +17,6 @@ module.exports = {
         'end-button-blue': '#7BC6E3',
         'end-button-hover-blue': '#7D95E2',
         'end-button-text-blue': '#7D95E266',
-      },
-      fontFamily: {
-        endcoin: ['SarunProCondensed-Regular', 'sans-serif'],
       },
     },
   },

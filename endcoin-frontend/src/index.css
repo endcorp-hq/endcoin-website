@@ -7,6 +7,10 @@
   src: url('../public/fonts/SarunPro-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'SarunProCondensed-Bold';
+  src: url('../public//fonts//SarunPro-Bold.ttf') format('truetype');
+}
 
 body {
   margin: 0;
