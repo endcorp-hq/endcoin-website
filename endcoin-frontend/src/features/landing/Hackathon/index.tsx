@@ -76,10 +76,10 @@ const Hackathon = (props: Props) => {
             COLOSSEUM HACKATHON
           </p>
           <p className="text-[14px] endcoin-lg:text-[18px] text-center w-full endcoin-md:max-w-[50vw]">
-            We are entering the Colosseum Renaissance hackathon to compete for
+            We have submit to the Colosseum Renaissance hackathon to compete for
             top prize in DePin, DeFi and Climate. We (Andrew & Lucas) can do all
-            the parts, but we’d like to move faster and build a team to turn
-            this into a company.
+            the parts, but we’re building a team to move faster and raise funds
+            for manufacturing.
           </p>
           <button
             onClick={() =>
