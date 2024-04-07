@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, store } from '../../app/store';
+import { RootState } from '../../app/store';
 import { ProgramState } from './types/program-state';
 import { EReducerState } from '../../app/enum';
 import { GraphPoint } from './types/graph-point';
@@ -7,8 +7,8 @@ import {
   Connection,
   GetVersionedTransactionConfig,
   PublicKey,
-  clusterApiUrl,
 } from '@solana/web3.js';
+import { staticAMMHistory } from '../graph/static-amm-history';
 
 const initialState: ProgramState = {
   status: EReducerState.IDLE,
@@ -47,17 +47,53 @@ export const programSlice = createSlice({
           `perform fetch program balance async rejected ${action.error.message}`,
         );
         console.log(action.error);
-      });
+      })
+      .addCase(fetchStaticDataPointsAsync.pending, (state) => {
+        state.status = EReducerState.LOADING;
+        console.log('perform fetch static data points async pending');
+      })
+      .addCase(
+        fetchStaticDataPointsAsync.fulfilled,
+        (state, action: PayloadAction<GraphPoint[]>) => {
+          state.graphDataPoints = action.payload;
+          state.status = EReducerState.IDLE;
+          console.log('perform fetch static data points async fulfilled');
+        },
+      );
   },
 });
 
-//get nonce from backend
+//fetch mock data points
+export const fetchStaticDataPointsAsync = createAsyncThunk(
+  'program/fetch-static-data-points',
+  async (_) => {
+    let dataPoints: GraphPoint[] = staticAMMHistory.map((point) => ({
+      blocktime: point.blocktime,
+      EndGaia: point.endGaia,
+      endCoin: point.endCoin,
+      gaiaCoin: point.gaiaCoin,
+    }));
+    return dataPoints;
+  },
+  {
+    condition: (_, { getState, extra }) => {
+      const { program: state } = getState() as { program: ProgramState };
+      if (state.status === EReducerState.LOADING) {
+        console.log('perform mock data points async already loading');
+        return false;
+      }
+    },
+  },
+);
+
+//get fetch emission transactions from devnet
 export const fetchProgramBalanceAsync = createAsyncThunk(
   'program/fetch-program-balance',
   async (_, { getState }) => {
     const programId = 'CsZXQua2LBArR51MtTJE3K1VA4DcxFFWUWU4JSJeJbeR';
     const url = process.env.REACT_APP_SOLANA_RPC!;
     const connection = new Connection(url, 'confirmed');
+
     let dataPoints: GraphPoint[] = [];
 
     // Fetch the signatures of all transactions involving the program
