@@ -9,36 +9,37 @@ const Hackathon = (props: Props) => {
   const taskItems = [
     {
       id: '00',
-      title: 'Tasks to be accomplished',
+      title: 'Tasks accomplished',
     },
     {
       id: '01',
       title: 'POC',
       subtitle:
-        '“decentralized antenna” that can read raw data from satellites.',
+        'Build a decentralized antenna that can read raw data from satellites.',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
     {
       id: '02',
-      title: 'Proof',
+      title: 'Aggregate',
       subtitle:
-        'We will build a “proof” program that anyone can run to validate collected data and submit to oracle. Endcoin/Gaiacoin delivered to proovers.',
+        'How can a large piece of data be pulled in fragments from many small antennas and be reconstructed?',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
     {
       id: '03',
       title: 'Audit',
-      subtitle: 'We will perform an audit on our current program and AMM.',
+      subtitle:
+        'Is our devnet deployed AMM really ready to face the music on mainnet?',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
     {
       id: '04',
-      title: 'Hooks',
+      title: 'Business',
       subtitle:
-        'Add “hooks” to current program so oracle and emission functionality can be upgraded over time.',
+        "We've done dev and have a vision. Now we need pitch decks, narrative, and suits and ties.",
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
@@ -46,9 +47,9 @@ const Hackathon = (props: Props) => {
       id: '05',
       title: 'Hype',
       subtitle:
-        'We will finally start working on Hype - social media, reach, etc.',
+        'We need to find a community member to lay the foundation to hype our memes -- social media, discord, website, etc.',
       progress:
-        '“decentralized antenna” that can read raw data from satellites.',
+        'decentralized antenna” that can read raw data from satellites.',
     },
   ];
 
