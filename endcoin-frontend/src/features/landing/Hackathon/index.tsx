@@ -72,7 +72,7 @@ const Hackathon = (props: Props) => {
       >
         <div className="text-white w-full flex flex-col items-center gap-y-6">
           <p className="text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] text-center">
-            COLLESEUM HACKATHON
+            COLOSSEUM HACKATHON
           </p>
           <p className="text-[14px] endcoin-lg:text-[18px] text-center w-full endcoin-md:max-w-[50vw]">
             We are entering the Colosseum Renaissance hackathon to compete for
@@ -86,7 +86,7 @@ const Hackathon = (props: Props) => {
             }
             className={`rounded border border-end-button-blue text-end-button-blue text-end-button-green text-[14px] kimo-md:text-[16px] py-2 px-[14.5px] bg-none hover:bg-end-button-blue hover:text-black ${transition}`}
           >
-            Visit Colleseum Hackathon
+            Visit Colosseum Hackathon
           </button>
         </div>
         <div className="flex flex-col w-full text-center gap-y-10 endcoin-md:gap-y-20">
