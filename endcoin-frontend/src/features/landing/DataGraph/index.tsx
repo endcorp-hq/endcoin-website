@@ -10,7 +10,7 @@ const DataGraph = (props: Props) => {
         id="dataGraph"
         className="flex flex-col justify-center items-start py-[75px] gap-y-[50px] font-endcoin"
       >
-        <p className="text-white text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] text-left">
+        <p className="text-white text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] text-left font-endcoin-bold">
           Where are we now?
         </p>
         <p className="text-[14px] endcoin-md:text-[18px] text-white">
@@ -31,7 +31,7 @@ const DataGraph = (props: Props) => {
           on devnet, showing the last 30 days of emissions:
         </p>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col max-w-full">
           <AreaChart />
         </div>
       </div>

@@ -2,6 +2,7 @@ import { EndLogo } from '../../icons/logo.icon';
 import { NAVBAR_LINKS } from '../../constants/navbar-items';
 import { scrollToDiv } from '../../constants/scrollFunction';
 import './navbar.css';
+import { transition } from '../../constants/transition';
 
 const SidebarDesktop = (): JSX.Element => {
   return (
@@ -38,7 +39,7 @@ const SidebarDesktop = (): JSX.Element => {
                             className={`w-full text-white ${
                               navTag.name === '|'
                                 ? 'cursor-default'
-                                : 'hover:text-end-button-hover-blue'
+                                : `hover:text-end-button-hover-blue ${transition}`
                             }`}
                             onClick={() => scrollToDiv(navTag.link)}
                           >

@@ -13,7 +13,7 @@ const Coin = (props: Props) => {
         id="contact"
         className="flex flex-col justify-center items-start font-endcoin w-full gap-y-2 endcoin-md:gap-y-4 text-white py-[50px] endcoin-md:py-[100px]"
       >
-        <p className="text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px]">
+        <p className="text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] font-endcoin-bold">
           Get in touch
         </p>
         <div className="text-[12px] endcoin-md:text-[14px] endcoin-xl:text-[18px]">

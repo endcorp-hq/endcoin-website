@@ -14,8 +14,10 @@ import { useWindowSize } from '../../hooks/use-window-size';
 export default function AreaChart() {
   const dataPoints = useAppSelector(selectGraphDataPoints);
   const windowSize = useWindowSize();
-  const width = windowSize[0] > 1000 ? 1000 : window.innerWidth - 20;
-  const height = windowSize[1] > 1000 ? 1000 : window.innerHeight - 20;
+  const width = windowSize[0] > 1030 ? 1000 : windowSize[0] - 48;
+  const height = windowSize[1] > 1030 ? 1000 : windowSize[1] - 48;
+
+  console.log('width', width);
 
   return (
     <AreaChartRecharts

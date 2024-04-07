@@ -2,6 +2,7 @@ import './hack.css';
 import Layout from '../../../app/Layout/layout';
 import HackTile from './components/HackTile';
 import FieldsTile from './components/FieldsTile';
+import { transition } from '../../../constants/transition';
 type Props = {};
 
 const Hackathon = (props: Props) => {
@@ -22,15 +23,14 @@ const Hackathon = (props: Props) => {
       id: '02',
       title: 'Proof',
       subtitle:
-        '“decentralized antenna” that can read raw data from satellites.',
+        'We will build a “proof” program that anyone can run to validate collected data and submit to oracle. Endcoin/Gaiacoin delivered to proovers.',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
     {
       id: '03',
       title: 'Audit',
-      subtitle:
-        '“decentralized antenna” that can read raw data from satellites.',
+      subtitle: 'We will perform an audit on our current program and AMM.',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
@@ -38,7 +38,7 @@ const Hackathon = (props: Props) => {
       id: '04',
       title: 'Hooks',
       subtitle:
-        '“decentralized antenna” that can read raw data from satellites.',
+        'Add “hooks” to current program so oracle and emission functionality can be upgraded over time.',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
@@ -46,7 +46,7 @@ const Hackathon = (props: Props) => {
       id: '05',
       title: 'Hype',
       subtitle:
-        '“decentralized antenna” that can read raw data from satellites.',
+        'We will finally start working on Hype - social media, reach, etc.',
       progress:
         '“decentralized antenna” that can read raw data from satellites.',
     },
@@ -84,7 +84,7 @@ const Hackathon = (props: Props) => {
             onClick={() =>
               window.open('https://www.colosseum.org/renaissance', '_blank')
             }
-            className="rounded border border-end-button-blue text-end-button-blue text-end-button-green text-[14px] kimo-md:text-[16px] py-2 px-[14.5px] bg-none hover:bg-end-button-blue hover:text-black"
+            className={`rounded border border-end-button-blue text-end-button-blue text-end-button-green text-[14px] kimo-md:text-[16px] py-2 px-[14.5px] bg-none hover:bg-end-button-blue hover:text-black ${transition}`}
           >
             Visit Colleseum Hackathon
           </button>

@@ -3,6 +3,7 @@ import { EndLogo, CloseMenuIcon, MenuIcon } from '../../icons/logo.icon';
 import { NAVBAR_LINKS } from '../../constants/navbar-items';
 import { scrollToDiv } from '../../constants/scrollFunction';
 import './navbar.css';
+import { transition } from '../../constants/transition';
 
 const SidebarResponsive = ({
   isOpen,
@@ -14,7 +15,7 @@ const SidebarResponsive = ({
   return (
     <>
       {isOpen && <div className={isOpen ? 'wall' : ''} />}
-      <header className={`h-[72px] top-0 w-full z-50 fixed bg`}>
+      <header className={`h-[72px] top-0 w-full z-50 fixed bg-[#09090E]`}>
         <div
           className={
             'ml-[16px] kimo-lg:max-w-[752px] kimo-md:max-w-[560px] w-full h-full kimo-md:mx-auto flex items-center kimo-md:relative'
@@ -62,10 +63,8 @@ const SidebarResponsive = ({
             return (
               <div key={index} className={'relative'}>
                 <button
-                  className={`w-full mb-[16px] text-left text-white hover:text-end-button-hover-blue ${
-                    navTag.name === '|'
-                      ? 'hidden'
-                      : 'hover:text-end-button-hover-blue'
+                  className={`w-full mb-[16px] text-left text-white hover:text-end-button-hover-blue ${transition} ${
+                    navTag.name === '|' ? 'hidden' : ''
                   }`}
                   onClick={() => {
                     scrollToDiv(navTag.link);
