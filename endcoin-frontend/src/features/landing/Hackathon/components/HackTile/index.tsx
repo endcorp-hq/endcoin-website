@@ -35,17 +35,24 @@ const MentorTile = ({
             {item.title}
           </span>
         </div>
-        <p className="text-[14px] endcoin-md:text-[17px]">{item.subtitle}</p>
+        <p className="text-[14px] endcoin-md:text-[17px] line-through">
+          {item.subtitle}
+        </p>
       </div>
-
       <div
-        className={
-          'w-full h-full p-6 flex flex-col justify-between rounded cardBack text-white'
-        }
+        className={`w-full h-full max-h-fit px-[30px] flex flex-col justify-start rounded cardBack text-white ${
+          item.id === '00' ? 'px-0 font-endcoin-bold justify-center' : ''
+        }`}
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, saepe
-        possimus maxime autem magnam, ex incidunt animi voluptate aperiam,
-        veritatis nemo odio. Corrupti, pariatur quos.
+        <div className="flex items-start gap-x-2">
+          <span className="text-[64px] text-[#7D95E2] font-bold">
+            {item.id === '00' ? '' : item.id}
+          </span>
+          <span className={`text-[24px] endcoin-md:text-[36px] self-center `}>
+            {item.title}
+          </span>
+        </div>
+        <p className="text-[14px] endcoin-md:text-[17px]">{item.subtitle}</p>
       </div>
     </div>
   );
