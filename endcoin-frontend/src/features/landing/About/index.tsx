@@ -15,7 +15,7 @@ const About = (props: Props) => {
           Endcoin starts by building A DePin Satellite receiver network to
           produce a reading of sea surface temperatures. This acts as a price
           feed to drive existing DeFi systems towards positive climate impact:
-          <span className="text-end-button-text-blue">
+          <span className="text-blue-600">
             {' '}
             A standard rate for the global economy that is owned by the Earth.
           </span>
