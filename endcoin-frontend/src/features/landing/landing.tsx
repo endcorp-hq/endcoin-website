@@ -11,8 +11,8 @@ export default function Landing() {
       <div className="flex flex-col bg-[#09090E]">
         <Coin />
         <About />
-        <WhitePaper />
         <Hackathon />
+        <WhitePaper />
         <DataGraph />
         <Contact />
       </div>
