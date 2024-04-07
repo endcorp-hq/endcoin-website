@@ -26,7 +26,7 @@ const WhitePaper = (props: Props) => {
           <button
             onClick={() =>
               window.open(
-                'https://github.com/alvr-org/ALVR/blob/master/README.md',
+                'https://github.com/pulse-on-climate/endcoin-whitepaper',
                 '_blank',
               )
             }
