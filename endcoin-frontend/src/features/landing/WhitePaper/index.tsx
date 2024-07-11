@@ -26,7 +26,7 @@ const WhitePaper = (props: Props) => {
           <button
             onClick={() =>
               window.open(
-                'https://github.com/pulse-on-climate/endcoin-whitepaper',
+                'https://pulse-on-climate.github.io/endcoin-whitepaper/',
                 '_blank',
               )
             }
