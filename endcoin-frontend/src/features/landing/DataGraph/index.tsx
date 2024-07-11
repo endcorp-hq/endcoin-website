@@ -51,7 +51,7 @@ const DataGraph = (props: Props) => {
           visit our{' '}
           <a
             className="text-end-button-blue hover:underline"
-            href="https://github.com/pulse-on-climate/endcoin-whitepaper"
+            href="https://pulse-on-climate.github.io/endcoin-whitepaper/"
           >
             whitepaper
           </a>{' '}
