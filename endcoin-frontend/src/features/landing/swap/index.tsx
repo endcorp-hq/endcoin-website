@@ -8,6 +8,7 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import Spinner from '../../../components/Spinner/page';
 import './swap.css';
 import Popup from '../../../components/LoginPopup/page';
+import { set } from '@project-serum/anchor/dist/cjs/utils/features';
 
 const SwapUI: React.FC = () => {
   //states
@@ -58,6 +59,8 @@ const SwapUI: React.FC = () => {
       setErrorMessage(err.message);
     } finally {
       setLoading(false);
+      setAmount('');
+      setInputToken('endcoin');
     }
   };
 
