@@ -101,8 +101,12 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
       new PublicKey(programId),
     );
 
+
+    // Only process the last 30 signatures
+    const last30Signatures = signaturesInfo.slice(0, 30);
+
     //Iterate over each signature to fetch the transaction details
-    const signatureArray = Array.from(signaturesInfo.entries());
+    const signatureArray = Array.from(last30Signatures.entries());
     signatureArray.reverse();
     for (const [, signatureInfo] of signatureArray) {
       const signature = signatureInfo.signature;
