@@ -1,14 +1,18 @@
+import { useAppSelector } from '../../../app/hooks';
 import Layout from '../../../app/Layout/layout';
+import Spinner from '../../../components/Spinner/page';
 import AreaChart from '../../graph/area-chart';
+import { selectGraphDataPoints } from '../../program/program-slice';
 
 type Props = {};
 
 const DataGraph = (props: Props) => {
+  const points = useAppSelector(selectGraphDataPoints);
   return (
     <Layout brownBackground={true}>
       <div
         id="dataGraph"
-        className="flex flex-col justify-center items-start py-[75px] gap-y-[50px] font-endcoin"
+        className="flex flex-col w-full justify-center items-start py-[75px] gap-y-[50px] font-endcoin"
       >
         <p className="text-white text-[30px] endcoin-md:text-[40px] endcoin-xl:text-[48px] text-left font-endcoin-bold">
           Where are we now?
@@ -34,9 +38,17 @@ const DataGraph = (props: Props) => {
           of emissions:
         </p>
 
-        <div className="flex flex-col max-w-full">
-          <AreaChart />
-        </div>
+        {points.length > 0 ? (
+          <div className="flex flex-col max-w-full">
+            <AreaChart />
+          </div>
+        ) : (
+          <div className="flex flex-col w-full items-center justify-center gap-y-5">
+            <Spinner size={25} color="#fff" />
+            <p className='text-white text-[14px]'>Loading graph..</p>
+          </div>
+        )}
+
         <p className="text-[14px] endcoin-md:text-[18px] text-white">
           We will take this MVP live on mainnet by the end of Q2 2024.
         </p>
