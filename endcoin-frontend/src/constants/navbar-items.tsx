@@ -4,10 +4,6 @@ export const NAVBAR_LINKS = [
     link: 'mission',
   },
   {
-    name: 'Hackathon',
-    link: 'hackathon',
-  },
-  {
     name: 'Whitepaper',
     link: 'whitepaper',
   },
