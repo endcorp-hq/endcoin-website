@@ -110,14 +110,12 @@ export const fetchProgramBalanceAsync = createAsyncThunk(
     signatureArray.reverse();
     for (const [, signatureInfo] of signatureArray) {
       const signature = signatureInfo.signature;
-      const transactionConfig: GetVersionedTransactionConfig = {
-        commitment: 'finalized',
-        maxSupportedTransactionVersion: 2,
-      };
-
       const transaction = await connection.getTransaction(
         signature,
-        transactionConfig,
+        {
+          commitment: 'finalized',
+        maxSupportedTransactionVersion: 2,
+        }
       );
 
       if (transaction) {

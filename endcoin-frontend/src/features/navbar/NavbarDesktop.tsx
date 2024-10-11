@@ -31,10 +31,9 @@ const SidebarDesktop = (): JSX.Element => {
 
               {
                 <ul className={`flex gap-x-[42px]`}>
-                  {NAVBAR_LINKS.map((navTag: any, index: any) => {
+                  {NAVBAR_LINKS.map((navTag: any) => {
                     return (
-                      <>
-                        <div key={index}>
+                        <div key={navTag.id}>
                           <button
                             className={`w-full text-white ${
                               navTag.name === '|'
@@ -46,7 +45,7 @@ const SidebarDesktop = (): JSX.Element => {
                             {navTag.name}
                           </button>
                         </div>
-                      </>
+                      
                     );
                   })}
                 </ul>

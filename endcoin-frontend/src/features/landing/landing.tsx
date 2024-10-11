@@ -7,6 +7,7 @@ import * as walletAdapterReact from '@solana/wallet-adapter-react';
 import * as walletAdapterWallets from '@solana/wallet-adapter-wallets';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
+import DataGraph from './DataGraph';
 
 export default function Landing() {
   const endpoint = clusterApiUrl('devnet');
@@ -18,8 +19,9 @@ export default function Landing() {
         <Coin />
         <About />
         <WhitePaper />
+        <DataGraph />
         <walletAdapterReact.ConnectionProvider endpoint={endpoint}>
-          <walletAdapterReact.WalletProvider wallets={wallets}>
+          <walletAdapterReact.WalletProvider wallets={wallets} autoConnect>
             <WalletModalProvider>
               <SwapUI />
             </WalletModalProvider>
