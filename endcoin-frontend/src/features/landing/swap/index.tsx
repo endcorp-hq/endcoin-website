@@ -97,7 +97,7 @@ const SwapUI: React.FC = () => {
             </p>
           </div>
           <div className="w-fit h-fit border border-white rounded">
-            <WalletMultiButton className="!bg-[#1C1C1C] hover:!bg-[#7BC6E3]" />
+            <WalletMultiButton style={{textWrap:"nowrap"}} className="!bg-[#1C1C1C]" />
           </div>
         </div>
         <div className="w-full max-w-[500px]">
